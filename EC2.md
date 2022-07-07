@@ -204,6 +204,7 @@ static ip
 2. allocate ip
 3. action -> associate ip with a instance
 4. release ip (delete the ip)
+5. bond to AZ
 </br></br>
 
 ## Placement group
@@ -277,7 +278,7 @@ static ip
 ## [EBS Volume](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/ebs-volumes.html) ##
 
 - network drive
-- mount to only one instance (CCP level, aka certified cloud partitioner)
+- mount to only **one instance** (CCP level, aka certified cloud partitioner)
 - bound to a specific AZ. cannot attach to other AZ
 - delete on termination: default tick to root
 - snapshot of volume can across AZ / region -> help to **move** volume / AMI
@@ -300,12 +301,16 @@ static ip
 - general purpose
 - wide variety of work
 - 1GB - 16TB
-> Boot volumes, virtual desktop, DT enviornment\
+> Boot volumes, virtual desktop, DT enviornment
 
 **io1 / io2**
 - <y> ssd
 - highest-performance
 - low latency, high throught-put
+- **multi attach**, each instance full R/W ro volume
+> high availability\
+> manage concurrent write operation\
+> special file system that is cluster-aware
 
 **sl1**
 - <b> hhd </b>
@@ -316,11 +321,51 @@ static ip
 - <b> hhd </b>
 - lowest cost
 
+## EBS Encryption ##
+
+- keys from KMS (AES-256)
+- snapshot of encrypted xx is encrypted
+- <g> highly available
+- <g> scalable automactically
+- <r> expensive </r>
+- based on Linux (POSIX file system)
+- access through security group
 
 
-<style>
-    r {color:red}
-    b {color:blue}
-    g {color:green}
-    y {color:yellow}
-</style>
+## [EFS - Elastic File System](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/AmazonEFS.html) ##
+
+- mount to different AZ
+- performance mode
+  - default: general purpose
+    - latency sensitive, access quickly (e.g. web server,, CMS)
+  - Max I/O: high latency, high throughput, more parallel
+    - big data, media processing
+  - Throughput mode
+    - bursting (upto 100MB + xxx)
+    - provisioned: set throughput based on storage
+  - Storage Tiers: [lifecyle management](https://docs.aws.amazon.com/zh_tw/efs/latest/ug/lifecycle-management-efs.html) - move file after n days
+    - frequently access
+  
+  ![ES setting](assets/EFS.png)
+
+<br></br>
+
+## Scalability ##
+
+**Vertical**
+- better software/hardware
+- <r> have limitation (hardware) </r>
+- e.g. non distributed system, database
+
+**hortizontal**
+- increase the number
+- common for web application
+- easy to scale
+
+## Availability ##
+
+- with horizontal scaling (passive)
+- running app in at lwast 2 data centre (active)
+- survice the data loss
+
+<link href="style.css" rel="stylesheet"></link>

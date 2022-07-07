@@ -1,5 +1,9 @@
+<link href="style.css" rel="stylesheet"></link>
+
 # IAM #
+
 ## Policy type / Policy Statement ##
+
 ![polycy](assets/EffectivePermissions-session-boundary-id.png)
 ![policy](assets/EffectivePermissions-session-rbpsession-id.png)
 ![policy](assets/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
