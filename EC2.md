@@ -145,10 +145,10 @@ Actions -> security -> Modify IAM
 - can lose instances(?) at any spot
   - resilient to failure
 
-> batch jobs
-> data analysis
-> image processing
-> any distributed workloads
+> batch jobs\
+> data analysis\
+> image processing\
+> any distributed workloads\
 > flexible start/end time
 
 ## Dedicated host
@@ -157,7 +157,7 @@ Actions -> security -> Modify IAM
 - control placement
 - 3-year allocation
 
-> Bring your own license
+> Bring your own license\ 
 > have strong regulatory or compliance needs
 
 ## Dedicated instance
@@ -204,7 +204,7 @@ static ip
 2. allocate ip
 3. action -> associate ip with a instance
 4. release ip (delete the ip)
-5. bond to AZ
+5. bond to AZ (specific)
 </br></br>
 
 ## Placement group
@@ -251,17 +251,16 @@ static ip
 - network failover
 - ENI alongside with intances will be deleted when instances terminated
 
-## [EC2 Hibernate](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/ebs-volumes.html) ##
+## [EC2 Hibernate](https://docs.aws.amazon.com/zh_tw/AWSEC2/latest/UserGuide/Hibernate.html) ##
 
-- <g>Preserved in RAM</g>
+- <g>Preserved in RAM (EBS, Elastic Block Store)</g>
 - <g>boot fast</g>
 - <g>encrypted, EBS </g>
 - < 150GB, < 60 days
 
 ## EC2 nitro ##
 
-- unerlying platform
-- next generation of EC2 instance
+- unerlying platform for next generation of EC2 instance
 - better performance
   - enhanced networking, HPC IPv6
   - high speed EBS
@@ -280,7 +279,7 @@ static ip
 - network drive
 - mount to only **one instance** (CCP level, aka certified cloud partitioner)
 - bound to a specific AZ. cannot attach to other AZ
-- delete on termination: default tick to root
+- delete on termination: default **tick** to ***root***, **untick** in other EBS
 - snapshot of volume can across AZ / region -> help to **move** volume / AMI
 
 ![volumn setting first on instance](assets/volume-setting-on-instance.png)
@@ -288,10 +287,10 @@ static ip
 ## EC2 intance store ##
 - <g> higher performance
 - <r> short term ()
-- <g> good for bufferm cache...
+- <g> good for buffer cache...
 - need back-up
 
-*Type*
+[*Type*](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html)
 
 > Characterized in size || throughput || IOPS\
 > Only GP && IO can used as boot volume
