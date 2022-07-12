@@ -47,7 +47,7 @@ Endpoint: /health
 - X-Forward-Proto
   - hide true IP in header [X-Forward-For](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/X-Forwarded-For), cannot be seen
   - use LB own private IP to communicate
-![ALB](/AWS/assets/ALB.png)
+![ALB](./assets/ALB.png)
 
 ## [**3. Network Load Balance**](https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/network/introduction.html) ##
 
@@ -56,7 +56,7 @@ Endpoint: /health
 - one static ip per AZ (helpful for whitlelisting ip)
 - Extreme performance
 
-![NLB](assets/NLB.png)
+![NLB](./assets/NLB.png)
 
 ## [**4. Gateway Load Balance**](https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/gateway/introduction.html) ##
 
@@ -511,7 +511,7 @@ Endpoint: /health
     - <g>ALB, NLB</g>: support N listenser and certs
     - <r>CLB</r>: support one cert only
 
-![ssl/tls](assets/sslntls.png)
+![ssl/tls](./assets/sslntls.png)
 
 ## Connection Draining (CLB) ## 
 - ### Deregistration Delay (ALB/NLB) ###
