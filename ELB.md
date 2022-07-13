@@ -22,7 +22,7 @@ Port: 4567
 Endpoint: /health
 ```
 
-### [Elastic Load Balancer\**](https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) ###
+### [Elastic Load Balancer](https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) ###
 
 - managed load balancer
 - less step
@@ -74,7 +74,7 @@ Endpoint: /health
 
 ![GLB](./assets/GLB.png)
 
-## [5. Cross-zone Load Balancing]() ##
+## [5. Cross-zone Load Balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html) ##
 - distribute traffics evenly
 - cross all register instance in all AZ
 - ALB
