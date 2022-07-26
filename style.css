@@ -1,9 +1,15 @@
 
 r {color:rgb(130, 59, 59)}
-b {color:#4086AE}
+bl {color:#4086AE}
 g {color:rgb(68, 117, 68)}
 y {color:rgb(201, 185, 77)}
-
+pp {color: rgb(147, 79, 147)}
+cy {color:rgb(73, 165, 165)}
+o {color:rgb(198, 122, 65)}
+hl {
+    background-color: rgba(255, 249, 165, 0.758);
+    color: rgb(134, 88, 22);
+}
 body {
     font-family: 'Courier New', monospace
 }

@@ -1,7 +1,5 @@
 # Load Balance #
 
-<link href="style.css" rel="stylesheet"></link>
-
 - Forward traffic, spread load across multiple downstream instance
 - expose DNS of server to allow access
 - handle failure
@@ -495,6 +493,7 @@ Endpoint: /health
 </html>
 </details>
 
+<br></br>
 ## SSL/TLS ##
 - encrypted transit
 - issued by CA, e.g. Digicert
@@ -521,4 +520,62 @@ When the instances are unhealthy or de-registrating:
 - stop sending requests
 - default: 300s (0-3600s)
 
+</br>
+
 ## Auto-Scaling Group ##
+
+- automatically add/minus the instances
+- horizontal
+- vertical
+- EC2 based Health check: <y>default</y>
+
+> ## Dynamic scaling policies ##
+- Tracking
+  - simple and easy set-up
+- simple/step scaling
+  - CloudWatch alarm
+- scheduled actions
+  - based on pattern
+- predictive scaling
+  - analyze historical load, then
+  - generate forecase (continous), then
+  - schedule calling actions
+  
+## Metrics ##
+- CPU
+- Request CountPer Target
+  - stable number of requests
+- average in/out
+  - Any threshold
+
+## Scaling Cooldowns ##
+- 300s
+> **ready-to-use AMI**\
+> faster requests serving\
+> ↓ cooldown period -> more dynamic scale up/down
+
+## <cy>so How to terminate?</cy> ##
+
+1. find AZ which has highest # of instance
+2. delete the oldest
+3. Aim: balance the # among diff. AZ
+
+<link href="style.css" rel="stylesheet"></link>
+
+## Lifecycle Hook ##
+
+- can perform extra steps before inService, or
+- before terminated
+
+## Launch Configuration ##
+
+- legacy
+- recreate is needed everytime update
+
+## Launch Template ##
+
+- multiple version
+- parameter subnet (reuse/inheritance)
+- on-demand/spot provision
+- T2 unlimited burst feature
+- recommand by AWS
